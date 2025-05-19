@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { BookOpen, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import * as GettingStarted from './posts/getting-started-with-react';
 import * as BuildingTailwind from './posts/building-with-tailwind';
@@ -95,27 +95,28 @@ function App() {
                     {posts.map((post, index) => (
                       <article
                         key={index}
-                        className="group cursor-pointer"
-                        onClick={() => window.location.hash = `/${post.slug}`}
+                        className="group"
                       >
-                        <div className="space-y-3">
-                          <div className="flex items-center gap-4 text-sm text-gray-600">
-                            <span>{post.date}</span>
-                            <span>•</span>
-                            <span>{post.readTime}</span>
+                        <Link to={`/${post.slug}`} className="block">
+                          <div className="space-y-3">
+                            <div className="flex items-center gap-4 text-sm text-gray-600">
+                              <span>{post.date}</span>
+                              <span>•</span>
+                              <span>{post.readTime}</span>
+                            </div>
+                            <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                              {post.title}
+                            </h3>
+                            <p className="text-gray-600">
+                              {post.content.split('\n')[1].trim()}
+                            </p>
+                            <div className="pt-2">
+                              <span className="text-blue-600 group-hover:text-blue-700 transition-colors">
+                                Read more →
+                              </span>
+                            </div>
                           </div>
-                          <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                            {post.title}
-                          </h3>
-                          <p className="text-gray-600">
-                            {post.content.split('\n')[1].trim()}
-                          </p>
-                          <div className="pt-2">
-                            <span className="text-blue-600 group-hover:text-blue-700 transition-colors">
-                              Read more →
-                            </span>
-                          </div>
-                        </div>
+                        </Link>
                       </article>
                     ))}
                   </div>
