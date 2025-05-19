@@ -43,7 +43,7 @@ function BlogPost({ post }: { post: typeof posts[0] }) {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/tech-blog-bolt">
       <div className="min-h-screen bg-white">
         {/* Header */}
         <header className="border-b">
@@ -51,16 +51,16 @@ function App() {
             <nav className="flex items-center justify-between">
               <Link to="/" className="text-xl font-semibold text-gray-900">John Doe</Link>
               <div className="flex items-center gap-6">
-                <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <a href="https://github.com" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <a href="https://twitter.com" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Twitter className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <a href="https://linkedin.com" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <a href="mailto:john@example.com" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
