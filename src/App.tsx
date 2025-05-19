@@ -4,6 +4,11 @@ import { BookOpen, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { getAllPosts, Post } from './lib/posts';
 
+// Predefined tags for AI/ML fields
+const PREDEFINED_TAGS = [
+  'AI', 'ML', 'Deep Learning', 'NLP', 'Computer Vision', 'Data Science', 'Reinforcement Learning', 'Robotics', 'MLOps', 'Generative AI', 'Prompt Engineering', 'LLM', 'Foundation Models', 'Self-supervised Learning', 'Transfer Learning', 'Explainable AI', 'Ethics', 'AI Safety', 'Optimization', 'Graph Neural Networks', 'Time Series', 'Recommendation', 'Speech', 'Vision-Language', 'Meta-Learning', 'Few-shot Learning', 'Zero-shot Learning', 'Active Learning', 'Bayesian', 'Causal Inference', 'Simulation', 'AI Product', 'AI Research'
+];
+
 function BlogPost({ post }: { post: Post }) {
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
@@ -11,6 +16,15 @@ function BlogPost({ post }: { post: Post }) {
         ← Back to posts
       </Link>
       <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
+      {post.tags && post.tags.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-6">
+          {post.tags.map((tag) => (
+            <span key={tag} className="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
       <div className="flex items-center gap-4 text-sm text-gray-600 mb-8">
         <span>{post.date}</span>
         <span>•</span>
@@ -127,8 +141,17 @@ function App() {
                             <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
                               {post.title}
                             </h3>
+                            {post.tags && post.tags.length > 0 && (
+                              <div className="flex flex-wrap gap-2 mb-1">
+                                {post.tags.map((tag) => (
+                                  <span key={tag} className="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded">
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
                             <p className="text-gray-600">
-                              {post.content.split('\n')[0].trim()}
+                              {post.content.split('\n').find(line => line.trim().length > 0)}
                             </p>
                             <div className="pt-2">
                               <span className="text-blue-600 group-hover:text-blue-700 transition-colors">
@@ -167,8 +190,17 @@ function App() {
                           <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
                             {post.title}
                           </h3>
+                          {post.tags && post.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mb-1">
+                              {post.tags.map((tag) => (
+                                <span key={tag} className="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                           <p className="text-gray-600">
-                            {post.content.split('\n')[0].trim()}
+                            {post.content.split('\n').find(line => line.trim().length > 0)}
                           </p>
                           <div className="pt-2">
                             <span className="text-blue-600 group-hover:text-blue-700 transition-colors">

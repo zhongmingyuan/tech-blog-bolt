@@ -2,6 +2,10 @@
 title: Welcome to My AI Journey
 date: May 18, 2025
 readTime: 1 min read
+tags:
+  - AI
+  - ML
+  - Deep Learning
 ---
 
 # Welcome to My AI Journey

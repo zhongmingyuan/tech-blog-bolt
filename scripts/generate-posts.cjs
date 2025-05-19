@@ -24,6 +24,7 @@ fs.readdirSync(postsDir).forEach(filename => {
       date: data.date || '',
       readTime: data.readTime || '',
       content,
+      tags: Array.isArray(data.tags) ? data.tags : [],
     });
   }
 });

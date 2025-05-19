@@ -61,3 +61,85 @@ npm run build
 ## Live Site
 
 Visit the live site at: https://zhongmingyuan.github.io/tech-blog-bolt/
+
+## Adjusting Navigation Tabs
+
+Tabs (Home, Archive, Service, About) are defined in `src/App.tsx` using React Router's `<NavLink>`. To add, remove, or rename tabs, edit the navigation section in the header and add or remove corresponding `<Route>` elements.
+
+Example:
+```tsx
+<NavLink to="/about">About</NavLink>
+<Route path="/about" element={<AboutPage />} />
+```
+
+## Tag System for Posts
+
+Each post can have a list of tags from a predefined set of AI/ML-related tags. Tags are displayed as badges under each post title.
+
+### Predefined Tags
+- AI
+- ML
+- Deep Learning
+- NLP
+- Computer Vision
+- Data Science
+- Reinforcement Learning
+- Robotics
+- MLOps
+- Generative AI
+- Prompt Engineering
+- LLM
+- Foundation Models
+- Self-supervised Learning
+- Transfer Learning
+- Explainable AI
+- Ethics
+- AI Safety
+- Optimization
+- Graph Neural Networks
+- Time Series
+- Recommendation
+- Speech
+- Vision-Language
+- Meta-Learning
+- Few-shot Learning
+- Zero-shot Learning
+- Active Learning
+- Bayesian
+- Causal Inference
+- Simulation
+- AI Product
+- AI Research
+
+### Adding Tags to a Post
+
+Add a `tags` field to the frontmatter of your markdown file, for example:
+
+```yaml
+---
+title: My Post
+date: 2025-05-18
+readTime: 2 min read
+tags:
+  - AI
+  - Deep Learning
+---
+```
+
+If you update the markdown, make sure your build process updates `src/generated/posts.json` accordingly.
+
+## Listing All Tags Used in the Blog
+
+Tags are defined in the frontmatter of each markdown file (see above). To get a list of all tags currently used in your blog, you can scan the frontmatter of all markdown files in `src/content/`, or simply inspect the generated `src/generated/posts.json` file.
+
+### Example: Extract All Unique Tags from posts.json
+
+You can run the following Node.js script in your project root to print all unique tags:
+
+```js
+const posts = require('./src/generated/posts.json');
+const allTags = Array.from(new Set(posts.flatMap(post => post.tags || [])));
+console.log(allTags);
+```
+
+This will output an array of all tags used in your posts.
