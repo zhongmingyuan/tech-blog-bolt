@@ -6,7 +6,7 @@ readTime: 1 min read
 
 # Welcome to My AI Journey
 
-Hello, I’m Mingyuan—an introverted ML engineer with 11 years of experience still learning every day. AI moves fast, and I’d like to share what I’ve discovered.
+Hello, I’m Mingyuan Zhong, PhD —an introverted ML engineer with 11 years of experience still learning every day. AI moves fast, and I’d like to share what I’ve discovered.
 
 ## What You’ll Find Here
 
