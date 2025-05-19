@@ -49,7 +49,7 @@ function App() {
         <header className="border-b">
           <div className="max-w-4xl mx-auto px-6 py-8">
             <nav className="flex items-center justify-between">
-              <Link to="/" className="text-xl font-semibold text-gray-900">John Doe</Link>
+              <Link to="/" className="text-xl font-semibold text-gray-900">Mingyuan ZHONG's Builder Blog</Link>
               <div className="flex items-center gap-6">
                 <a href="https://github.com" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Github className="w-5 h-5" />
@@ -137,7 +137,7 @@ function App() {
         {/* Footer */}
         <footer className="border-t py-8">
           <div className="max-w-4xl mx-auto px-6 text-center text-gray-600">
-            <p>© 2024 John Doe. All rights reserved.</p>
+            <p>© 2024 Mingyuan ZHONG. All rights reserved.</p>
           </div>
         </footer>
       </div>
