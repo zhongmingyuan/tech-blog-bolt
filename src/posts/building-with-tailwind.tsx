@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export const post = {
   title: 'Building Beautiful UIs with Tailwind CSS',
@@ -38,7 +39,7 @@ export const post = {
 export default function Post() {
   return (
     <article className="prose prose-lg max-w-none">
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <ReactMarkdown>{post.content}</ReactMarkdown>
     </article>
   );
 }
