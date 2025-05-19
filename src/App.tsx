@@ -42,15 +42,15 @@ function App() {
                 <a href="https://github.com/zhongmingyuan" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="https://twitter.com/zhongmingyuan" className="text-gray-600 hover:text-gray-900 transition-colors">
+                {/* <a href="https://twitter.com/zhongmingyuan" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Twitter className="w-5 h-5" />
-                </a>
-                <a href="https://linkedin.com/in/zhongmingyuan" className="text-gray-600 hover:text-gray-900 transition-colors">
+                </a> */}
+                <a href="https://www.linkedin.com/in/mingyuan-zhong-1397ab2a" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="mailto:zhongmingyuan@example.com" className="text-gray-600 hover:text-gray-900 transition-colors">
+                {/* <a href="mailto:zhongmingyuan@example.com" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Mail className="w-5 h-5" />
-                </a>
+                </a> */}
               </div>
             </nav>
           </div>
@@ -124,7 +124,7 @@ function App() {
         {/* Footer */}
         <footer className="border-t py-8">
           <div className="max-w-4xl mx-auto px-6 text-center text-gray-600">
-            <p>© 2024 Mingyuan ZHONG. All rights reserved.</p>
+            <p>© 2025 Mingyuan ZHONG. All rights reserved.</p>
           </div>
         </footer>
       </div>
