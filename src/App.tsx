@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
 import { BookOpen, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { getAllPosts, Post } from './lib/posts';
@@ -39,6 +39,39 @@ function App() {
             <nav className="flex items-center justify-between">
               <Link to="/" className="text-xl font-semibold text-gray-900">Mingyuan ZHONG's Builder Blog</Link>
               <div className="flex items-center gap-6">
+                <NavLink
+                  to="/"
+                  className={({ isActive }: { isActive: boolean }) =>
+                    `px-3 py-1 rounded-md text-sm font-medium transition-colors ${isActive ? 'bg-blue-100 text-blue-700' : 'text-gray-700 hover:text-blue-700'}`
+                  }
+                  end
+                >
+                  Home
+                </NavLink>
+                <NavLink
+                  to="/archive"
+                  className={({ isActive }: { isActive: boolean }) =>
+                    `px-3 py-1 rounded-md text-sm font-medium transition-colors ${isActive ? 'bg-blue-100 text-blue-700' : 'text-gray-700 hover:text-blue-700'}`
+                  }
+                >
+                  Archive
+                </NavLink>
+                <NavLink
+                  to="/service"
+                  className={({ isActive }: { isActive: boolean }) =>
+                    `px-3 py-1 rounded-md text-sm font-medium transition-colors ${isActive ? 'bg-blue-100 text-blue-700' : 'text-gray-700 hover:text-blue-700'}`
+                  }
+                >
+                  Service
+                </NavLink>
+                <NavLink
+                  to="/about"
+                  className={({ isActive }: { isActive: boolean }) =>
+                    `px-3 py-1 rounded-md text-sm font-medium transition-colors ${isActive ? 'bg-blue-100 text-blue-700' : 'text-gray-700 hover:text-blue-700'}`
+                  }
+                >
+                  About
+                </NavLink>
                 <a href="https://github.com/zhongmingyuan" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
@@ -110,6 +143,57 @@ function App() {
                 </div>
               </section>
             </>
+          } />
+          <Route path="/archive" element={
+            <section className="py-16">
+              <div className="max-w-4xl mx-auto px-6">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-8 flex items-center gap-2">
+                  <BookOpen className="w-6 h-6" />
+                  Archive
+                </h2>
+                <div className="space-y-12">
+                  {posts.map((post, index) => (
+                    <article
+                      key={index}
+                      className="group"
+                    >
+                      <Link to={`/${post.slug}`} className="block">
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-4 text-sm text-gray-600">
+                            <span>{post.date}</span>
+                            <span>•</span>
+                            <span>{post.readTime}</span>
+                          </div>
+                          <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                            {post.title}
+                          </h3>
+                          <p className="text-gray-600">
+                            {post.content.split('\n')[0].trim()}
+                          </p>
+                          <div className="pt-2">
+                            <span className="text-blue-600 group-hover:text-blue-700 transition-colors">
+                              Read more →
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </section>
+          } />
+          <Route path="/service" element={
+            <section className="py-32 flex flex-col items-center justify-center min-h-[40vh]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Service</h2>
+              <p className="text-lg text-gray-600">Under construction</p>
+            </section>
+          } />
+          <Route path="/about" element={
+            <section className="py-32 flex flex-col items-center justify-center min-h-[40vh]">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">About</h2>
+              <p className="text-lg text-gray-600">Under construction</p>
+            </section>
           } />
           
           {posts.map((post, index) => (
