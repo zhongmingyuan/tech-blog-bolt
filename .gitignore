@@ -4,3 +4,6 @@ dist
 .env
 .env.*
 !.env.example
+
+# Ignore generated posts
+src/generated/

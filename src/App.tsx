@@ -63,11 +63,10 @@ function App() {
               <section className="py-20 bg-gray-50">
                 <div className="max-w-4xl mx-auto px-6">
                   <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                    Welcome to my digital garden 🌱
+                    Welcome to my digital notebook 🌱
                   </h1>
                   <p className="text-xl text-gray-600 max-w-2xl">
-                    I write about web development, design, and the intersection of technology and creativity.
-                    Join me on this journey of continuous learning and exploration.
+                    I write about experiences and thoughts on building AI products.
                   </p>
                 </div>
               </section>
