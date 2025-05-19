@@ -1,30 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { BookOpen, Github, Linkedin, Mail, Twitter } from 'lucide-react';
-import * as GettingStarted from './posts/getting-started-with-react';
-import * as BuildingTailwind from './posts/building-with-tailwind';
-import * as ModernJavaScript from './posts/modern-javascript';
+import ReactMarkdown from 'react-markdown';
+import { getAllPosts, Post } from './lib/posts';
 
-const posts = [
-  {
-    ...GettingStarted.post,
-    component: GettingStarted.default,
-    slug: 'getting-started-with-react',
-  },
-  {
-    ...BuildingTailwind.post,
-    component: BuildingTailwind.default,
-    slug: 'building-with-tailwind',
-  },
-  {
-    ...ModernJavaScript.post,
-    component: ModernJavaScript.default,
-    slug: 'modern-javascript',
-  },
-];
-
-function BlogPost({ post }: { post: typeof posts[0] }) {
-  const PostComponent = post.component;
+function BlogPost({ post }: { post: Post }) {
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
       <Link to="/" className="text-blue-600 hover:text-blue-700 mb-8 inline-block">
@@ -36,12 +16,20 @@ function BlogPost({ post }: { post: typeof posts[0] }) {
         <span>•</span>
         <span>{post.readTime}</span>
       </div>
-      <PostComponent />
+      <article className="prose prose-lg max-w-none">
+        <ReactMarkdown>{post.content}</ReactMarkdown>
+      </article>
     </div>
   );
 }
 
 function App() {
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    getAllPosts().then(setPosts);
+  }, []);
+
   return (
     <Router basename="/tech-blog-bolt">
       <div className="min-h-screen bg-white">
@@ -108,7 +96,7 @@ function App() {
                               {post.title}
                             </h3>
                             <p className="text-gray-600">
-                              {post.content.split('\n')[1].trim()}
+                              {post.content.split('\n')[0].trim()}
                             </p>
                             <div className="pt-2">
                               <span className="text-blue-600 group-hover:text-blue-700 transition-colors">
