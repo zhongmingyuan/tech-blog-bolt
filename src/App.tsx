@@ -51,16 +51,16 @@ function App() {
             <nav className="flex items-center justify-between">
               <Link to="/" className="text-xl font-semibold text-gray-900">Mingyuan ZHONG's Builder Blog</Link>
               <div className="flex items-center gap-6">
-                <a href="https://github.com" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <a href="https://github.com/zhongmingyuan" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="https://twitter.com" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <a href="https://twitter.com/zhongmingyuan" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Twitter className="w-5 h-5" />
                 </a>
-                <a href="https://linkedin.com" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <a href="https://linkedin.com/in/zhongmingyuan" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="mailto:john@example.com" className="text-gray-600 hover:text-gray-900 transition-colors">
+                <a href="mailto:zhongmingyuan@example.com" className="text-gray-600 hover:text-gray-900 transition-colors">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
